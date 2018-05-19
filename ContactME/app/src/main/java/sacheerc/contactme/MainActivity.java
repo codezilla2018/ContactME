@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     SurfaceView cameraView;
     TextView textView;
     CameraSource cameraSource;
+
     final int RequestCameraPermissionID = 1001;
 
 
@@ -64,7 +65,6 @@ public static String informationCreater(String string){
         }
     }
     return " Cannot identify a Number";
-
 }
 
 
@@ -86,6 +86,7 @@ public static String informationCreater(String string){
                     .setRequestedFps(2.0f)
                     .setAutoFocusEnabled(true)
                     .build();
+
             cameraView.getHolder().addCallback(new SurfaceHolder.Callback() {
                 @Override
                 public void surfaceCreated(SurfaceHolder surfaceHolder) {
