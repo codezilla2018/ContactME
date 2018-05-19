@@ -1,6 +1,7 @@
 package sacheerc.contactme;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -10,6 +11,8 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.vision.CameraSource;
@@ -20,6 +23,7 @@ import com.google.android.gms.vision.text.TextRecognizer;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
+    private Button button;
     SurfaceView cameraView;
     TextView textView;
     CameraSource cameraSource;
@@ -46,26 +50,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 //method for identify 10 digits standered contactnumber
-public static String informationCreater(String string){
-    int lenString =string.length();
-    String ansString="";
-    for(int i=0;i<lenString;i++){
-        if(string.charAt(i)=='0'){
-            for(int j=i;j<lenString;j++){
-                if(ansString.length()==10)
-                    return ansString;
-                if (Character.isDigit(string.charAt(j))==true)
-                    ansString=ansString+Character.toString(string.charAt(j));
-                else if(string.charAt(j)=='-'||string.charAt(j)==' ')
-                    ansString=ansString;
-                else if(string.charAt(j)=='\n')
-                    ansString="";
+    public static String informationCreater(String string){
+        int lenString =string.length();
+        String ansString="";
+        for(int i=0;i<lenString;i++){
+            if(string.charAt(i)=='0'){
+                for(int j=i;j<lenString;j++){
+                    if(ansString.length()==10)
+                        return ansString;
+                    if (Character.isDigit(string.charAt(j))==true)
+                        ansString=ansString+Character.toString(string.charAt(j));
+                    else if(string.charAt(j)=='-'||string.charAt(j)==' ')
+                        ansString=ansString;
+                    else if(string.charAt(j)=='\n')
+                        ansString="";
+                }
+                i=i+10;
             }
-            i=i+10;
         }
+        return " Cannot identify a Number";
     }
-    return " Cannot identify a Number";
-}
 
 
     @Override
@@ -75,6 +79,14 @@ public static String informationCreater(String string){
 
         cameraView = (SurfaceView) findViewById(R.id.surface_view);
         textView = (TextView) findViewById(R.id.text_view);
+        button = (Button)findViewById(R.id.button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSaveContacts();
+            }
+        });
 
         TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
         if (!textRecognizer.isOperational()) {
@@ -142,5 +154,10 @@ public static String informationCreater(String string){
                 }
             });
         }
+    }
+
+    public void openSaveContacts(){
+        Intent intent = new Intent(this,SaveContacts.class);
+        startActivity(intent);
     }
 }

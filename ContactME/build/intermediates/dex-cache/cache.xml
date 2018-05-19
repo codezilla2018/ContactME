@@ -25,17 +25,8 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="d163e73fd19a22a8b5ba72c0d2744f25579e6fe6">
+        sha1="165d4652d593f25a5394af0c2062d6505bccf889">
         <dex dex="F:\SacheeRc\MyDocs\ContactME\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_95bfe355d9862d8136571b17ba80a75dc9a95c87\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="F:\SacheeRc\MyDocs\ContactME\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="F:\SacheeRc\MyDocs\ContactME\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c71454f8a8949c13dcd70e91995c40d850b76dbe\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -54,6 +45,15 @@
         revision="26.0.1"
         sha1="a30aea7df545072ad3c06f56b2efc13e67222140">
         <dex dex="F:\SacheeRc\MyDocs\ContactME\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3afce9c8b0b4eff494cf0857ead67fcc87555c64\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\SacheeRc\MyDocs\ContactME\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="F:\SacheeRc\MyDocs\ContactME\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c71454f8a8949c13dcd70e91995c40d850b76dbe\classes.dex" />
     </item>
 
 </items>
