@@ -44,6 +44,29 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+//method for identify 10 digits standered contactnumber
+public static String informationCreater(String string){
+    int lenString =string.length();
+    String ansString="";
+    for(int i=0;i<lenString;i++){
+        if(string.charAt(i)=='0'){
+            for(int j=i;j<lenString;j++){
+                if(ansString.length()==10)
+                    return ansString;
+                if (Character.isDigit(string.charAt(j))==true)
+                    ansString=ansString+Character.toString(string.charAt(j));
+                else if(string.charAt(j)=='-'||string.charAt(j)==' ')
+                    ansString=ansString;
+                else if(string.charAt(j)=='\n')
+                    ansString="";
+            }
+            i=i+10;
+        }
+    }
+    return " Cannot identify a Number";
+
+}
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                                     stringBuilder.append(item.getValue());
                                     stringBuilder.append("\n");
                                 }
-                                textView.setText(stringBuilder.toString());
+                                textView.setText(informationCreater(stringBuilder.toString()));
                             }
                         });
                     }
