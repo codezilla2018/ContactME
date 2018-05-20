@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 i=i+10;
             }
         }
-        return " Cannot identify a Number";
+        return " Cannot detect a Phone Number";
     }
 
 
