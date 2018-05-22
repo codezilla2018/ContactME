@@ -24,9 +24,15 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
+    private Button button1;
     SurfaceView cameraView;
     TextView textView;
+    TextView viewName;
+    TextView viewEmail;
     CameraSource cameraSource;
+    static String number="";
+    static String name="";
+    static String email="";
 
     final int RequestCameraPermissionID = 1001;
 
@@ -68,7 +74,79 @@ public class MainActivity extends AppCompatActivity {
                 i=i+10;
             }
         }
-        return " Cannot detect a Phone Number";
+        return " Cannot identify a Number";
+    }
+
+    public static String nameFinder(String string){
+        int lenString =string.length();
+        String ansString="";
+        int i=1;
+        while(i<lenString){
+            if(Character.isLetter(string.charAt(i))==true && (string.charAt(i-1)==' ' || string.charAt(i-1)=='-' || string.charAt(i-1)==':'|| string.charAt(i-1)=='\n')){
+                int j=i;
+                int condition=0;
+                while(string.charAt(j)!='\n' && condition==0){
+                    if(Character.isLetter(string.charAt(j))==true||string.charAt(j)=='.' ||string.charAt(j)==' '){
+                        ansString+=Character.toString(string.charAt(j));
+                        j+=1;
+                    }
+                    else{
+                        ansString="";
+                        condition=1;
+                    }
+                }
+                i=j;
+                if(ansString!="")
+                    return ansString;
+
+            }
+            else
+                i+=1;
+        }
+        return " Cannot identify Contact Name..!";
+
+    }
+
+    public static String emailFinder(String string){
+        int lenString =string.length();
+        String ansString="";
+        int i=0;
+        while(i<lenString){
+            if(string.charAt(i)=='@'){
+                int j=i;
+                int k=i+1;
+                int condition = 0;
+                while(condition==0){
+                    if(string.charAt(j)==' '||string.charAt(j)==':'||string.charAt(j)=='-'||string.charAt(j)=='\n'||j==0){
+                        if(j==0)
+                            ansString=Character.toString(string.charAt(j))+ansString;
+                        condition=1;
+                    }
+                    else{
+                        ansString=Character.toString(string.charAt(j))+ansString;
+                        if(j!=0)
+                            j-=1;
+                    }
+                }
+                condition=0;
+                while(condition==0){
+                    if(string.charAt(k)==' '||string.charAt(k)==':'||string.charAt(k)=='-'||string.charAt(k)=='\n'){
+                        condition=1;
+                    }
+                    else{
+                        ansString=ansString+Character.toString(string.charAt(k));
+                        if(k!=lenString-1)
+                            k+=1;
+
+                    }
+                }
+                i=k;
+                return ansString;
+            }
+            i+=1;
+        }
+        return " Cannot detect an Email";
+
     }
 
 
@@ -79,12 +157,22 @@ public class MainActivity extends AppCompatActivity {
 
         cameraView = (SurfaceView) findViewById(R.id.surface_view);
         textView = (TextView) findViewById(R.id.text_view);
+        viewName = (TextView) findViewById(R.id.view_name);
+        viewEmail = (TextView) findViewById(R.id.view_email);
         button = (Button)findViewById(R.id.button);
+        button1= (Button) findViewById(R.id.refreshName);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openSaveContacts();
+            }
+        });
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                refresh();
             }
         });
 
@@ -147,7 +235,17 @@ public class MainActivity extends AppCompatActivity {
                                     stringBuilder.append(item.getValue());
                                     stringBuilder.append("\n");
                                 }
-                                textView.setText(informationCreater(stringBuilder.toString()));
+
+                                if(name==""||name==" Cannot identify Contact Name..!")
+                                    name=nameFinder(stringBuilder.toString());
+                                if(email==""||email==" Cannot detect an Email")
+                                    email=emailFinder(stringBuilder.toString());
+                                if(number==""||number==" Cannot identify a Number")
+                                    number=informationCreater(stringBuilder.toString());
+
+                                viewEmail.setText(email);
+                                textView.setText(number);
+                                viewName.setText(name);
                             }
                         });
                     }
@@ -160,4 +258,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,SaveContacts.class);
         startActivity(intent);
     }
+
+    public void refresh(){
+        name="";
+        email="";
+        number="";
+
+    }
+
+
+    public void save conta
 }
