@@ -7,11 +7,11 @@
     tools:context="sacheerc.contactme.SaveContacts">
 
     <TextView
-        android:id="@+id/text_view"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:text="Welcome"
+        android:layout_marginTop="14dp"
+        android:text="ContactMe : Save Contacts"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -24,20 +24,21 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="phone"
-        android:layout_marginBottom="49dp"
-        android:layout_above="@+id/mEmailAddress"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignBaseline="@+id/numberUi"
+        android:layout_alignBottom="@+id/numberUi"
+        android:layout_alignEnd="@+id/title" />
 
     <EditText
         android:id="@+id/mEmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_view"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
         android:ems="20"
         android:inputType="textEmailAddress"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_above="@+id/save"
+        android:layout_marginBottom="73dp"
+        android:layout_alignStart="@+id/emailUi"
+        android:layout_alignEnd="@+id/contactName" />
 
     <EditText
         android:id="@+id/contactName"
@@ -45,8 +46,67 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:layout_marginTop="87dp"
-        android:layout_alignParentTop="true"
+        android:layout_alignBaseline="@+id/UiName"
+        android:layout_alignBottom="@+id/UiName"
         android:layout_alignStart="@+id/mPhoneNumber" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="21dp"
+        android:text="Save" />
+
+    <TextView
+        android:id="@+id/emailUi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/title"
+        android:layout_below="@+id/numberUi"
+        android:layout_marginTop="42dp"
+        android:text="Email    :"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/numberUi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/emailUi"
+        android:layout_centerVertical="true"
+        android:text="Mobile  :"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/UiName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name   :"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        android:layout_above="@+id/numberUi"
+        android:layout_alignStart="@+id/numberUi"
+        android:layout_marginBottom="26dp" />
+
+    <TextView
+        android:id="@+id/saved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/save"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="26dp"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/newContactButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/UiName"
+        android:layout_alignTop="@+id/save"
+        android:text="New" />
 
 </RelativeLayout>

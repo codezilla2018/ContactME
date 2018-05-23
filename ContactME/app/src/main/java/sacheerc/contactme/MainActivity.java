@@ -3,7 +3,6 @@ package sacheerc.contactme;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -158,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         cameraView = (SurfaceView) findViewById(R.id.surface_view);
-        textView = (TextView) findViewById(R.id.text_view);
+        textView = (TextView) findViewById(R.id.title);
         viewName = (TextView) findViewById(R.id.view_name);
         viewEmail = (TextView) findViewById(R.id.view_email);
         button = (Button)findViewById(R.id.button);
@@ -269,10 +268,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void saveContacts(){
-        Intent intent1 = new Intent(Intent.ACTION_INSERT);
-        intent1.setType(ContactsContract.RawContacts.CONTENT_TYPE);
-        startActivity(intent1);
 
-    }
 }
