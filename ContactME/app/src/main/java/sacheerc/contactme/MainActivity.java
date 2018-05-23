@@ -3,6 +3,7 @@ package sacheerc.contactme;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import com.google.android.gms.vision.text.TextRecognizer;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
+
     private Button button;
     private Button button1;
     SurfaceView cameraView;
@@ -30,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
     TextView viewName;
     TextView viewEmail;
     CameraSource cameraSource;
-    static String number="";
-    static String name="";
-    static String email="";
+    public static String number="";
+    public static String name="";
+    public static String email="";
 
     final int RequestCameraPermissionID = 1001;
 
@@ -267,5 +269,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void save conta
+    public void saveContacts(){
+        Intent intent1 = new Intent(Intent.ACTION_INSERT);
+        intent1.setType(ContactsContract.RawContacts.CONTENT_TYPE);
+        startActivity(intent1);
+
+    }
 }
