@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.view.View;
 import android.provider.ContactsContract.Data;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -24,8 +25,8 @@ public class SaveContacts extends AppCompatActivity {
     EditText contactNumber ;
     EditText contactEmail;
     EditText contactName;
-    private Button saveButton;
-    private Button newContact;
+    private ImageButton saveButton;
+    private ImageButton newContact;
 
     private static String name=MainActivity.name;
     private static  String number=MainActivity.number;
@@ -40,8 +41,8 @@ public class SaveContacts extends AppCompatActivity {
         contactNumber =(EditText) findViewById(R.id.mPhoneNumber);
         contactName = (EditText) findViewById(R.id.contactName);
         contactEmail = (EditText) findViewById(R.id.mEmailAddress);
-        saveButton = (Button) findViewById(R.id.save);
-        newContact =(Button) findViewById((R.id.newContactButton));
+        saveButton = (ImageButton) findViewById(R.id.save);
+        newContact =(ImageButton) findViewById((R.id.newContactButton));
 
         contactNumber.setText(number);
         contactName.setText(name);

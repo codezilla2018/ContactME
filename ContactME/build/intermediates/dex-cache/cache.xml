@@ -3,12 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="F:\SacheeRc\MyDocs\ContactME\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="F:\SacheeRc\ProjectContactMe\ContactME\ContactME\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="F:\SacheeRc\MyDocs\ContactME\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c71454f8a8949c13dcd70e91995c40d850b76dbe\classes.dex" />
+        sha1="d45fc5a3a8ffe1543d47992ab72cb5e765e03551">
+        <dex dex="F:\SacheeRc\ProjectContactMe\ContactME\ContactME\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_716930656056b842eea864a6b6e4d10c12869440\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -18,6 +18,24 @@
         revision="26.0.1"
         sha1="89ff4f9826a3efbf741e82f229bca33446eb8f20">
         <dex dex="F:\SacheeRc\MyDocs\ContactME\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_95bfe355d9862d8136571b17ba80a75dc9a95c87\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\SacheeRc\ProjectContactMe\ContactME\ContactME\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="F:\SacheeRc\ProjectContactMe\ContactME\ContactME\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_dde3e2264200500ab7e5416be3fb7cfc1f6de53a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\SacheeRc\MyDocs\ContactME\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="F:\SacheeRc\MyDocs\ContactME\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c71454f8a8949c13dcd70e91995c40d850b76dbe\classes.dex" />
     </item>
 
 </items>

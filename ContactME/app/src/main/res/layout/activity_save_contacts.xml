@@ -7,7 +7,7 @@
     tools:context="sacheerc.contactme.SaveContacts">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -26,7 +26,7 @@
         android:inputType="phone"
         android:layout_alignBaseline="@+id/numberUi"
         android:layout_alignBottom="@+id/numberUi"
-        android:layout_alignEnd="@+id/title" />
+        android:layout_alignStart="@+id/contactName" />
 
     <EditText
         android:id="@+id/mEmailAddress"
@@ -48,37 +48,40 @@
         android:inputType="textPersonName"
         android:layout_alignBaseline="@+id/UiName"
         android:layout_alignBottom="@+id/UiName"
-        android:layout_alignStart="@+id/mPhoneNumber" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="17dp" />
 
-    <Button
+    <ImageButton
         android:id="@+id/save"
+        style="@android:style/Widget.Holo.Light.ImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/mEmailAddress"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="21dp"
-        android:text="Save" />
+        android:layout_marginBottom="23dp"
+        android:src="@drawable/save" />
 
     <TextView
         android:id="@+id/emailUi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/title"
-        android:layout_below="@+id/numberUi"
-        android:layout_marginTop="42dp"
         android:text="Email    :"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_above="@+id/mEmailAddress"
+        android:layout_alignEnd="@+id/UiName"
+        android:layout_marginBottom="25dp" />
 
     <TextView
         android:id="@+id/numberUi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/emailUi"
-        android:layout_centerVertical="true"
         android:text="Mobile  :"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="26dp" />
 
     <TextView
         android:id="@+id/UiName"
@@ -101,12 +104,24 @@
         android:textColor="@android:color/holo_green_dark"
         android:textSize="18sp" />
 
-    <Button
+    <ImageButton
         android:id="@+id/newContactButton"
+        style="@android:style/Widget.Holo.Light.ImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/UiName"
-        android:layout_alignTop="@+id/save"
-        android:text="New" />
+        android:layout_alignStart="@+id/mEmailAddress"
+        android:layout_below="@+id/mEmailAddress"
+        android:src="@drawable/home" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp"
+        android:text="Press Home to Start a New Activity"
+        android:textColor="@color/common_google_signin_btn_text_light_default"
+        android:textSize="18sp" />
 
 </RelativeLayout>

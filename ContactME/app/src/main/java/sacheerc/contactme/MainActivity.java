@@ -13,6 +13,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.gms.vision.CameraSource;
@@ -24,8 +25,8 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button button;
-    private Button button1;
+    private ImageButton button;
+    private ImageButton button1;
     SurfaceView cameraView;
     TextView textView;
     TextView viewName;
@@ -160,8 +161,8 @@ public class MainActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.title);
         viewName = (TextView) findViewById(R.id.view_name);
         viewEmail = (TextView) findViewById(R.id.view_email);
-        button = (Button)findViewById(R.id.button);
-        button1= (Button) findViewById(R.id.refreshName);
+        button = (ImageButton)findViewById(R.id.button);
+        button1= (ImageButton) findViewById(R.id.refreshName);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
