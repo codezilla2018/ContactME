@@ -12,7 +12,6 @@ import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -25,8 +24,8 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton button;
-    private ImageButton button1;
+    private ImageButton button;  //Capture button
+    private ImageButton button1; //refresh button
     SurfaceView cameraView;
     TextView textView;
     TextView viewName;
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     final int RequestCameraPermissionID = 1001;
 
-
+//Request permission to Access the Camera
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode){
@@ -79,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         return " Cannot identify a Number";
     }
 
+//Method to Identify Contact name from the recognized String
     public static String nameFinder(String string){
         int lenString =string.length();
         String ansString="";
@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+//Method to Identify email address from the recognized String
     public static String emailFinder(String string){
         int lenString =string.length();
         String ansString="";
@@ -164,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
         button = (ImageButton)findViewById(R.id.button);
         button1= (ImageButton) findViewById(R.id.refreshName);
 
+//Set capture button to open Save Contact Activity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -171,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+//Set refresh button to remove assigned data from variables
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -178,6 +181,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+//making text recognizer object
         TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
         if (!textRecognizer.isOperational()) {
             Log.w("MainActivity", "Detector dependancies are not yet available");
@@ -237,14 +241,14 @@ public class MainActivity extends AppCompatActivity {
                                     stringBuilder.append(item.getValue());
                                     stringBuilder.append("\n");
                                 }
-
+                            //Assign Values to variables according to conditions
                                 if(name==""||name==" Cannot identify Contact Name..!")
                                     name=nameFinder(stringBuilder.toString());
                                 if(email==""||email==" Cannot detect an Email")
                                     email=emailFinder(stringBuilder.toString());
                                 if(number==""||number==" Cannot identify a Number")
                                     number=informationCreater(stringBuilder.toString());
-
+                            //Display detected data to user
                                 viewEmail.setText(email);
                                 textView.setText(number);
                                 viewName.setText(name);
@@ -256,11 +260,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+//Method to open save contact Activity
     public void openSaveContacts(){
         Intent intent = new Intent(this,SaveContacts.class);
         startActivity(intent);
     }
 
+//Method to remove data from following varibles.
     public void refresh(){
         name="";
         email="";

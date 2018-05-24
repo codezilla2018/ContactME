@@ -14,7 +14,6 @@ import android.provider.ContactsContract.RawContacts;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.widget.EditText;
-import android.widget.Button;
 import android.view.View;
 import android.provider.ContactsContract.Data;
 import android.widget.ImageButton;
@@ -28,26 +27,30 @@ public class SaveContacts extends AppCompatActivity {
     private ImageButton saveButton;
     private ImageButton newContact;
 
+ //Parsing values from main method
     private static String name=MainActivity.name;
     private static  String number=MainActivity.number;
     private static String email = MainActivity.email;
+//Parsing values end...
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_contacts);
 
-
+//Assigning TEXT_VIEWS to variables
         contactNumber =(EditText) findViewById(R.id.mPhoneNumber);
         contactName = (EditText) findViewById(R.id.contactName);
         contactEmail = (EditText) findViewById(R.id.mEmailAddress);
         saveButton = (ImageButton) findViewById(R.id.save);
         newContact =(ImageButton) findViewById((R.id.newContactButton));
 
+//Display details to TEXT_VIEWS
         contactNumber.setText(number);
         contactName.setText(name);
         contactEmail.setText(email);
 
+//Set home button to go to Main Interface
         newContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,6 +58,7 @@ public class SaveContacts extends AppCompatActivity {
             }
         });
 
+//Set save button to write Contacts to the devise
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +68,7 @@ public class SaveContacts extends AppCompatActivity {
         });
     }
 
+//Method to write capture details to mobile phone Contacts
     private void writeContact(String displayName, String number, String email) {
         ArrayList contentProviderOperations = new ArrayList();
         //insert raw contact using RawContacts.CONTENT_URI
@@ -77,7 +82,7 @@ public class SaveContacts extends AppCompatActivity {
         contentProviderOperations.add(ContentProviderOperation.newInsert(Data.CONTENT_URI)
                 .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0).withValue(Data.MIMETYPE, Phone.CONTENT_ITEM_TYPE)
                 .withValue(Phone.NUMBER, number).withValue(Phone.TYPE, Phone.TYPE_MOBILE).build());
-        //insert mobile number using Data.CONTENT_URI
+        //insert email using Data.CONTENT_URI
         contentProviderOperations.add(ContentProviderOperation.newInsert(Data.CONTENT_URI)
                 .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0).withValue(Data.MIMETYPE,Email.CONTENT_ITEM_TYPE)
                 .withValue(Email.DATA, email).withValue(Email.TYPE, Email.TYPE_WORK).build());
@@ -90,7 +95,7 @@ public class SaveContacts extends AppCompatActivity {
         } catch (OperationApplicationException e) {
             e.printStackTrace();
         }
-
+//Display the message after saving process
         TextView view = (TextView)findViewById(R.id.saved);
         view.setText("Contact saved successfully");
     }
@@ -104,7 +109,7 @@ public class SaveContacts extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }
-
+//Intent activity Starter
     public void openHome(){
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
